@@ -11,4 +11,4 @@ rootProject.name = '$projectName$'
 
 include '$projectName$'
 include '$projectName$CompositeApplication'
-include 'cucumber-aat'
+include 'cucumber-sit'
