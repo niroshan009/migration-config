@@ -22,7 +22,6 @@ public class WireMockHook {
 		
 		wireMock.register(WireMock.get(WireMock.urlPathMatching("/testGet")).willReturn(aResponse().withStatus(200)
 				.withHeader("Content-Type", "application/json").withBody("{\"message\": \"Success\"}")));
-		Thread.sleep(50000);
 	}
 	
 	@After("@wiremockApi")
