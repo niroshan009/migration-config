@@ -1,3 +1,9 @@
 task deployWSO2(type:Exec) {
-	commandLine 'mvn', 'clean', 'deploy', '-Dmaven.car.deploy.skip=false', '-Dmaven.deploy.skip=true'
+	commandLine 'mvn', 'org.wso2.maven:maven-car-deploy-plugin:deploy-car', '-Pdeploy-local', "-s../settings.xml"
+}
+
+task uploadToArtifactory(type: Exec) {
+	description = 'Deploys CAR file to artifactory'
+	def command = [ 'mvn',  'deploy', '-Pdeploy-artifactory', "-s../settings.xml", "-Dartifactory-username=deployer", "-Dartifactory-password=password", "-Dartifactory-url=http://localhost:8081/artifactory/libs-release", "-Dartifactory-repo-key=local" ]
+	commandLine command
 }
